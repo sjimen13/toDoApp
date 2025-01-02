@@ -1,4 +1,4 @@
 <app-actions />
-@for (item of tasksList; track $index) {
+@for (item of tasksList$ | async; track $index) {
 <app-task [task]="item" />
 }
