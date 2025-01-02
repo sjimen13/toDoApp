@@ -4,9 +4,9 @@ import { Component } from '@angular/core';
   selector: 'app-header',
   standalone: true,
   imports: [],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  template: `<header class="header">
+    <h1 class="header__title">🌴 My todo app 🏝️</h1>
+  </header>`,
+  styleUrl: './header.component.scss',
 })
-export class HeaderComponent {
-
-}
+export class HeaderComponent {}

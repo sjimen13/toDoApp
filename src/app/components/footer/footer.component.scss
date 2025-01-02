@@ -1,0 +1,13 @@
+.footer {
+  height: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  &__text {
+    color: var(--color-grey-dark-1);
+    font-size: 1rem;
+  }
+}

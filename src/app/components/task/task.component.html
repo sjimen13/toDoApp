@@ -1,0 +1,21 @@
+<div class="task">
+  <div class="task__content">
+    <input type="checkbox" class="task__checkbox" [checked]="task.completed" />
+    <div class="task__info">
+      <div class="task__title">
+        {{ task.title }}
+      </div>
+      <div class="task__date">
+        {{ task.due_date }}
+      </div>
+    </div>
+  </div>
+  <div class="task__actions">
+    <button class="task__actions__button task__actions__button--edit">
+      <i class="fas fa-edit"></i>
+    </button>
+    <button class="task__actions__button task__actions__button--delete">
+      <i class="fas fa-trash"></i>
+    </button>
+  </div>
+</div>
