@@ -1,1 +1,52 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  //COLORS
+  --color-primary: #b63700;
+  //TODO:CHECK
+  --color-primary-light: #f2e0d5;
+  --color-primary-dark: #3d1e00;
+
+  --color-grey-light-1: #faf9f9;
+  --color-grey-light-2: #f4f2f2;
+  --color-grey-light-3: #f0eeee;
+  --color-grey-light-4: #ccc;
+
+  --color-grey-dark-1: #333;
+  --color-grey-dark-2: #777;
+  --color-grey-dark-3: #999;
+  //buttons
+  --success-color: #3cac36;
+
+  //
+  --color-black: #000;
+  //Shadow
+  --shadow-1: 0 1.5rem 4rem rgba(var(--color-black), $alpha: 0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--color-grey-dark-1);
+  background-image: linear-gradient(
+    to right bottom,
+    var(--color-grey-light-1),
+    var(--color-primary-lig)
+  );
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  //
+  min-height: 100vh;
+}
