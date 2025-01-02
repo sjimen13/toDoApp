@@ -1,4 +1,6 @@
 .task {
+  display: flex;
+  align-items: center;
   margin: 0.5rem;
   &__content {
     display: flex;

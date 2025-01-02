@@ -1,6 +1,12 @@
 <div class="task">
   <div class="task__content">
-    <input type="checkbox" class="task__checkbox" [checked]="task.completed" />
+    <div class="task__checkbox-container">
+      <input
+        type="checkbox"
+        class="task__checkbox"
+        [checked]="task.completed"
+      />
+    </div>
     <div class="task__info">
       <div class="task__title">
         {{ task.title }}
@@ -11,11 +17,15 @@
     </div>
   </div>
   <div class="task__actions">
-    <button class="task__actions__button task__actions__button--edit">
-      <i class="fas fa-edit"></i>
+    <button
+      mat-button
+      color="primary"
+      class="task__button task__button--delete"
+    >
+      <mat-icon aria-hidden="false" fontIcon="delete"></mat-icon>
     </button>
-    <button class="task__actions__button task__actions__button--delete">
-      <i class="fas fa-trash"></i>
+    <button mat-button color="accent" class="task__button task__button--edit">
+      <mat-icon aria-hidden="false" fontIcon="edit"></mat-icon>
     </button>
   </div>
 </div>
