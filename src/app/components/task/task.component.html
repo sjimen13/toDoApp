@@ -1,0 +1,31 @@
+<div class="task">
+  <div class="task__content">
+    <div class="task__checkbox-container">
+      <input
+        type="checkbox"
+        class="task__checkbox"
+        [checked]="task.completed"
+      />
+    </div>
+    <div class="task__info">
+      <div class="task__title">
+        {{ task.title }}
+      </div>
+      <div class="task__date">
+        {{ task.due_date }}
+      </div>
+    </div>
+  </div>
+  <div class="task__actions">
+    <button
+      mat-button
+      color="primary"
+      class="task__button task__button--delete"
+    >
+      <mat-icon aria-hidden="false" fontIcon="delete"></mat-icon>
+    </button>
+    <button mat-button color="accent" class="task__button task__button--edit">
+      <mat-icon aria-hidden="false" fontIcon="edit"></mat-icon>
+    </button>
+  </div>
+</div>
