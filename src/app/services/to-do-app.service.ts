@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { TASKS_STORED } from '../core/to-do.const';
 import { Task } from '../shared/interfaces/task.interface';
-import { map, Observable, of, tap, timer } from 'rxjs';
+import { BehaviorSubject, map, Observable, of, tap, timer } from 'rxjs';
 import { taskMocks } from '../shared/mocks/task.mocks';
 
 @Injectable({
@@ -16,47 +16,14 @@ export class ToDoAppService {
       })
     );
   }
-  saveTask(task: Task): Observable<Task[]> {
-    return of(task).pipe(
+  updateTaskList(tasks: Task[]): Observable<Task[]> {
+    return timer(2000).pipe(
       tap(() => {
-        const tasks: Task[] = JSON.parse(
-          localStorage.getItem(TASKS_STORED) || '[]'
-        );
-        const updatedTasks = [...tasks, task];
-        localStorage.setItem(TASKS_STORED, JSON.stringify(updatedTasks));
+        localStorage.setItem(TASKS_STORED, JSON.stringify(tasks));
       }),
       map(
         () => JSON.parse(localStorage.getItem(TASKS_STORED) || '[]') as Task[]
       )
-    );
-  }
-  editTask(updatedTask: Task): Observable<Task[]> {
-    return of(updatedTask).pipe(
-      tap(() => {
-        const tasks: Task[] = JSON.parse(
-          localStorage.getItem(TASKS_STORED) || '[]'
-        );
-        const updatedTasks = tasks.map((task) => {
-          if (task.id === updatedTask.id) {
-            return updatedTask;
-          } else {
-            return task;
-          }
-        });
-
-        localStorage.setItem(TASKS_STORED, JSON.stringify(updatedTasks));
-      }),
-      map(() => JSON.parse(localStorage.getItem(TASKS_STORED) || '[]'))
-    );
-  }
-  deleteTask(taskId: number): Observable<Task[]> {
-    return timer(2000).pipe(
-      map(() => {
-        const tasks = JSON.parse(localStorage.getItem(TASKS_STORED) || '[]');
-        const newTasks = tasks.filter((task: Task) => task.id !== taskId);
-        localStorage.setItem(TASKS_STORED, JSON.stringify(newTasks));
-        return newTasks;
-      })
     );
   }
 }

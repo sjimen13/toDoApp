@@ -8,12 +8,18 @@
         (click)="triggerCompleteTask(task)"
       />
     </div>
-    <div class="task__info">
-      <div class="task__title">
+    <div
+      class="task__info"
+      [ngClass]="{ 'task__info--highlight': task.isPastDue }"
+    >
+      <div
+        class="task__title"
+        [ngClass]="{ 'task__title--completed': task.completed }"
+      >
         {{ task.title }}
       </div>
-      <div class="task__date">
-        {{ task.due_date }}
+      <div class="task__date" *ngIf="!task.completed">
+        {{ task.due_date | date : " d,MMM,yy" }}
       </div>
     </div>
   </div>

@@ -3,4 +3,5 @@ export interface Task {
   title: string;
   due_date: Date;
   completed: boolean;
+  isPastDue?: boolean;
 }

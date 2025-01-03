@@ -2,8 +2,23 @@
   display: flex;
   align-items: center;
   margin: 0.5rem;
+  background-color: var(--color-grey-light-2);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  justify-content: space-between;
+
   &__content {
     display: flex;
     gap: 0.5rem;
+  }
+  &__info--highlight {
+    color: var(--color-primary);
+    text-decoration: underline --color-primary;
+  }
+  &__title {
+    white-space: break-spaces;
+  }
+  &__title--completed {
+    text-decoration: line-through;
   }
 }
