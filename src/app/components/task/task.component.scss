@@ -16,9 +16,15 @@
     text-decoration: underline --color-primary;
   }
   &__title {
+    font-size: 1rem;
+    font-weight: 500;
     white-space: break-spaces;
   }
   &__title--completed {
     text-decoration: line-through;
+  }
+  &__date {
+    font-size: 0.8rem;
+    font-weight: 400;
   }
 }
