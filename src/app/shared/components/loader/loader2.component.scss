@@ -1,0 +1,53 @@
+.main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 99999;
+  background-color: var(--color-grey-light-1);
+
+  .box-animation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .logo {
+      width: 60px;
+      height: 60px;
+    }
+
+    .first-loader::before {
+      content: "⬤";
+      right: calc(50% + 100px);
+      position: absolute;
+      color: var(--color-primary-light);
+      animation: loadBarFirst 2s infinite ease;
+    }
+
+    .second-loader::before {
+      content: "⬤";
+      right: calc(50% - 139px);
+      position: absolute;
+      color: var(--color-primary-light);
+      animation: loadBarSecond 2s infinite ease;
+    }
+
+    @keyframes loadBarFirst {
+      50% {
+        transform: translateX(120px);
+      }
+    }
+
+    @keyframes loadBarSecond {
+      50% {
+        transform: translateX(-120px);
+      }
+    }
+  }
+}

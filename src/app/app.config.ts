@@ -11,7 +11,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideEffects } from '@ngrx/effects';
-import { toDoAppReducers } from './store/to-do-app.reducers';
+import { toDoAppReducers } from './store/reducers/to-do-app.reducers';
 import { ToDoAppEffects } from './store/to-do-app.effects';
 
 export const appConfig: ApplicationConfig = {

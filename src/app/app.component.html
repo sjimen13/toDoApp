@@ -1,3 +1,4 @@
+<app-loader *ngIf="isLoading$ | async" />
 <app-header />
 <router-outlet />
 <app-footer [date]="today$ | async" />

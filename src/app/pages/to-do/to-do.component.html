@@ -1,8 +1,10 @@
-<app-actions (createTask)="createTask()" />
-@for (item of tasksList$ | async; track item.id) {
-<app-task
-  [task]="item"
-  (deleteTask)="deleteTask($event)"
-  (editTask)="editTask($event)"
-/>
-}
+<app-actions (createTask)="createTask()" (searchTask)="filterList($event)" />
+<section class="to-do">
+  @for (item of vm$ | async; track item.id) {
+  <app-task
+    [task]="item"
+    (deleteTask)="deleteTask($event)"
+    (editTask)="editTask($event)"
+  />
+  }
+</section>

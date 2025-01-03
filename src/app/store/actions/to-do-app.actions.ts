@@ -1,6 +1,7 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
 import { Task } from '../../shared/interfaces/task.interface';
 
+//Todo: change actions group by responsability
 export const ToDoActions = createActionGroup({
   source: 'To Do App',
   events: {
