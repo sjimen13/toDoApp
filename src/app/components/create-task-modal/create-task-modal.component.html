@@ -1,0 +1,38 @@
+<form class="createTaskModal" [formGroup]="form" (ngSubmit)="addTask()">
+  <header class="createTaskModal__header">
+    <button
+      mat-icon-button
+      (click)="closeModal()"
+      class="createTaskModal__close"
+    >
+      <mat-icon aria-hidden="false" fontIcon="close"></mat-icon>
+    </button>
+    <h3 class="createTaskModal__title">Create a task</h3>
+  </header>
+
+  <mat-form-field class="search__search-bar">
+    <mat-label>Choose a date</mat-label>
+    <input
+      class="search__input"
+      matInput
+      placeholder="Search"
+      formControlName="title"
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      [matDatepicker]="picker"
+      placeholder="Choose a date"
+      formControlName="dueDate"
+    />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <div class="createTaskModal__actions">
+    <button mat-button color="primary">Cancel</button>
+    <button mat-button color="accent" [disabled]="form.invalid" type="submit">
+      Create Task
+    </button>
+  </div>
+</form>

@@ -22,7 +22,7 @@ export class ToDoAppEffects {
       )
     );
   });
-  saveTask$ = createEffect(() => {
+  addTask$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(ToDoActions.addTask),
       switchMap((action) => {
@@ -37,8 +37,9 @@ export class ToDoAppEffects {
   editTask$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(ToDoActions.editTask),
-      switchMap((action) => {
+      switchMap((action, state) => {
         const { task } = action;
+
         return this.toDoAppService.editTask(task).pipe(
           map((tasks) => ToDoActions.editTaskSuccess({ tasks: tasks })),
           catchError((err) => of(ToDoActions.editTaskFailure(err.message)))

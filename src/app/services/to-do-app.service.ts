@@ -22,7 +22,7 @@ export class ToDoAppService {
         const tasks: Task[] = JSON.parse(
           localStorage.getItem(TASKS_STORED) || '[]'
         );
-        const updatedTasks = tasks.map((t) => ({ ...t, task }));
+        const updatedTasks = [...tasks, task];
         localStorage.setItem(TASKS_STORED, JSON.stringify(updatedTasks));
       }),
       map(
@@ -36,14 +36,15 @@ export class ToDoAppService {
         const tasks: Task[] = JSON.parse(
           localStorage.getItem(TASKS_STORED) || '[]'
         );
-        const taskIndex = tasks.findIndex((task) => task.id === updatedTask.id);
+        const updatedTasks = tasks.map((task) => {
+          if (task.id === updatedTask.id) {
+            return updatedTask;
+          } else {
+            return task;
+          }
+        });
 
-        if (taskIndex !== -1) {
-          tasks[taskIndex] = { ...tasks[taskIndex], ...updatedTask };
-          localStorage.setItem(TASKS_STORED, JSON.stringify(tasks));
-        } else {
-          throw new Error('Task not found');
-        }
+        localStorage.setItem(TASKS_STORED, JSON.stringify(updatedTasks));
       }),
       map(() => JSON.parse(localStorage.getItem(TASKS_STORED) || '[]'))
     );

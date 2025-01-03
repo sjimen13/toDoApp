@@ -5,6 +5,7 @@
         type="checkbox"
         class="task__checkbox"
         [checked]="task.completed"
+        (click)="triggerCompleteTask(task)"
       />
     </div>
     <div class="task__info">
@@ -21,11 +22,9 @@
       mat-button
       color="primary"
       class="task__button task__button--delete"
+      (click)="triggerDeleteTask(task.id)"
     >
-      <mat-icon aria-hidden="false" fontIcon="delete"></mat-icon>
-    </button>
-    <button mat-button color="accent" class="task__button task__button--edit">
-      <mat-icon aria-hidden="false" fontIcon="edit"></mat-icon>
+      Delete <mat-icon aria-hidden="false" fontIcon="delete"></mat-icon>
     </button>
   </div>
 </div>

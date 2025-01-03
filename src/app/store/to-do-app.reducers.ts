@@ -31,6 +31,6 @@ export const toDoAppReducers = createReducer(
   })),
   on(ToDoActions.editTaskSuccess, (state, { tasks }) => ({
     ...state,
-    tasks: tasks,
+    tasks: [...tasks],
   }))
 );

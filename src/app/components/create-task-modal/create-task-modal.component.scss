@@ -1,0 +1,25 @@
+.createTaskModal {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  &__header {
+    display: inline-block;
+  }
+  &__close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+  }
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+}
