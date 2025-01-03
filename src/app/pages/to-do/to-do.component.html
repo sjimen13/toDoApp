@@ -1,4 +1,8 @@
-<app-actions />
-@for (item of tasksList; track $index) {
-<app-task [task]="item" />
+<app-actions (createTask)="createTask()" />
+@for (item of tasksList$ | async; track item.id) {
+<app-task
+  [task]="item"
+  (deleteTask)="deleteTask($event)"
+  (editTask)="editTask($event)"
+/>
 }

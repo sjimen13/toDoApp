@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -18,4 +18,12 @@ import { MatSelectModule } from '@angular/material/select';
   templateUrl: './actions.component.html',
   styleUrl: './actions.component.scss',
 })
-export class ActionsComponent {}
+export class ActionsComponent {
+  @Output()
+  createTask = new EventEmitter<void>();
+
+  addTask($event: Event) {
+    $event.preventDefault();
+    this.createTask.emit();
+  }
+}
